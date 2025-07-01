@@ -1,0 +1,16 @@
+package com.example.ENAA.SKills.Mapper;
+
+import com.example.ENAA.SKills.DTO.CompetenceDTO;
+import com.example.ENAA.SKills.Model.Competence;
+import org.mapstruct.Mapper;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface CompetenceMapper {
+    CompetenceDTO toDto(Competence competence);
+    Competence toEntity(CompetenceDTO dto);
+
+    List<CompetenceDTO> toDtoList(List<Competence> competences);
+    List<Competence> toEntityList(List<CompetenceDTO> dtos);
+}
