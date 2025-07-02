@@ -19,6 +19,6 @@ public class SousCompetence {
     private String titre;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "competence_id", nullable = false)
+//    @JoinColumn(name = "competence_id", nullable = false)
     private Competence competence;
 }

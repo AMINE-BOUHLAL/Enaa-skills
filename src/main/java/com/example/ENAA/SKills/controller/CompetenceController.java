@@ -3,8 +3,7 @@ package com.example.ENAA.SKills.controller;
 import com.example.ENAA.SKills.DTO.CompetenceDTO;
 import com.example.ENAA.SKills.Service.CompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +18,9 @@ public class CompetenceController {
     public CompetenceController(CompetenceService competenceService) {
         this.competenceService = competenceService;
     }
+
+
+
 
     @PostMapping
     public CompetenceDTO add(@RequestBody CompetenceDTO dto) {

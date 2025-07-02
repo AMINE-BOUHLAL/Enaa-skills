@@ -6,9 +6,10 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+
 @ToString
 public class SousCompetenceDTO {
     private Long id;
-    private String nom;
-    private Long competenceId;
+    private String titre;
+//    private Long competenceId;
 }
