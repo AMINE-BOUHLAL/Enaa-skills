@@ -6,11 +6,10 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+
+@Mapper(componentModel = "spring", uses = {SousCompetenceMapper.class})
 public interface CompetenceMapper {
     CompetenceDTO toDto(Competence competence);
-    Competence toEntity(CompetenceDTO dto);
 
-    List<CompetenceDTO> toDtoList(List<Competence> competences);
-    List<Competence> toEntityList(List<CompetenceDTO> dtos);
+    Competence toEntity(CompetenceDTO dto);
 }

@@ -2,15 +2,14 @@ package com.example.ENAA.SKills.Model;
 
 import com.example.ENAA.SKills.Model.SousCompetence;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "copetences")
-@Data
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Competence {

@@ -21,38 +21,31 @@ public class CompetenceController {
     }
 
     @PostMapping
-    public ResponseEntity<CompetenceDTO> createCompetence(@RequestBody CompetenceDTO competenceDTO) {
-        CompetenceDTO createdCompetence = competenceService.createCompetence(competenceDTO);
-        return new ResponseEntity<>(createdCompetence, HttpStatus.CREATED);
+    public CompetenceDTO add(@RequestBody CompetenceDTO dto) {
+        return competenceService.createCompetence(dto);
+    }
+
+
+
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        competenceService.deleteCompetence(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CompetenceDTO> getCompetenceById(@PathVariable Long id) {
-        CompetenceDTO competenceDTO = competenceService.getCompetenceById(id);
-        if (competenceDTO != null) {
-            return new ResponseEntity<>(competenceDTO, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public CompetenceDTO getOne(@PathVariable Long id) {
+        return competenceService.getCompetenceById(id);
     }
 
     @GetMapping
-    public ResponseEntity<List<CompetenceDTO>> getAllCompetences() {
-        List<CompetenceDTO> competences = competenceService.getAllCompetences();
-        return new ResponseEntity<>(competences, HttpStatus.OK);
+    public List<CompetenceDTO> getAll() {
+        return competenceService.getAllCompetences();
     }
+
 
     @PutMapping("/{id}")
-    public ResponseEntity<CompetenceDTO> updateCompetence(@PathVariable Long id, @RequestBody CompetenceDTO competenceDTO) {
-        CompetenceDTO updatedCompetence = competenceService.updateCompetence(id, competenceDTO);
-        if (updatedCompetence != null) {
-            return new ResponseEntity<>(updatedCompetence, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCompetence(@PathVariable Long id) {
-        competenceService.deleteCompetence(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public CompetenceDTO update(@PathVariable Long id, @RequestBody CompetenceDTO dto) {
+        return competenceService.updateCompetence(id, dto);
     }
 }
