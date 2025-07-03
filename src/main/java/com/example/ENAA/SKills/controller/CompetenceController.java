@@ -3,9 +3,7 @@ package com.example.ENAA.SKills.controller;
 import com.example.ENAA.SKills.DTO.CompetenceDTO;
 import com.example.ENAA.SKills.Service.CompetenceService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -27,9 +25,6 @@ public class CompetenceController {
         return competenceService.createCompetence(dto);
     }
 
-
-
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         competenceService.deleteCompetence(id);
@@ -44,7 +39,6 @@ public class CompetenceController {
     public List<CompetenceDTO> getAll() {
         return competenceService.getAllCompetences();
     }
-
 
     @PutMapping("/{id}")
     public CompetenceDTO update(@PathVariable Long id, @RequestBody CompetenceDTO dto) {

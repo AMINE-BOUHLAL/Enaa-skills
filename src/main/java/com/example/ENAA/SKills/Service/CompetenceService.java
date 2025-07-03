@@ -4,12 +4,8 @@ import com.example.ENAA.SKills.DTO.CompetenceDTO;
 import com.example.ENAA.SKills.Mapper.CompetenceMapper;
 import com.example.ENAA.SKills.Model.Competence;
 import com.example.ENAA.SKills.Repository.CompetenceRepository;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,8 +26,6 @@ public class CompetenceService {
         return competenceMapper.toDto(saved);
     }
 
-
-
     public CompetenceDTO getCompetenceById(Long id) {
         Competence competence = competenceRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Compétence non trouvée"));
@@ -48,10 +42,6 @@ public class CompetenceService {
     public void deleteCompetence(Long id) {
         competenceRepository.deleteById(id);
     }
-
-
-
-
 
     public CompetenceDTO updateCompetence(Long id, CompetenceDTO dto) {
         Competence existing = competenceRepository.findById(id)
