@@ -51,11 +51,27 @@ public class SousCompetenceService {
         sousCompetenceRepository.deleteById(id);
     }
 
+
+
+
+
     public SousCompetenceDTO update(Long id, SousCompetenceDTO sousCompetenceDTO) {
         SousCompetence existing = sousCompetenceRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Compétence non trouvée"));
-        existing.setTitre(sousCompetenceDTO.getTitre());
-        return sousCompetenceMapper.toDto(sousCompetenceRepository.save(existing));
+                .orElseThrow(() -> new RuntimeException("SousCompetence not found with id: " + id));
+
+
+        if (sousCompetenceDTO.getTitre() != null) {
+            existing.setTitre(sousCompetenceDTO.getTitre());
+        }
+        existing.setValidation(sousCompetenceDTO.getValidation() != null ? sousCompetenceDTO.getValidation() : existing.getValidation());
+        if (sousCompetenceDTO.getCompetenceId() != null) {
+            Competence competence = competenceRepository.findById(sousCompetenceDTO.getCompetenceId())
+                    .orElseThrow(() -> new RuntimeException("Competence not found with id: " + sousCompetenceDTO.getCompetenceId()));
+            existing.setCompetence(competence);
+        }
+
+        SousCompetence updated = sousCompetenceRepository.save(existing);
+        return sousCompetenceMapper.toDto(updated);
     }
 }
 

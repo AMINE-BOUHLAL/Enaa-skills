@@ -1,6 +1,7 @@
 package com.example.ENAA.SKills.Service;
 
 import com.example.ENAA.SKills.DTO.CompetenceDTO;
+import com.example.ENAA.SKills.DTO.SousCompetenceDTO;
 import com.example.ENAA.SKills.Mapper.CompetenceMapper;
 import com.example.ENAA.SKills.Model.Competence;
 import com.example.ENAA.SKills.Repository.CompetenceRepository;
@@ -60,4 +61,7 @@ public class CompetenceService {
                 .map(competenceMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+
+
 }
