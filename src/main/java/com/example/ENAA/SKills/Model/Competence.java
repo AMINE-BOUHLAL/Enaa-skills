@@ -1,6 +1,7 @@
 package com.example.ENAA.SKills.Model;
 
 import com.example.ENAA.SKills.Model.SousCompetence;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,7 +22,7 @@ public class Competence {
     private String titre;
     private String description;
     @OneToMany(mappedBy = "competence", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonIgnore
     private List<SousCompetence> sousCompetences;
 
     public Long getId() {

@@ -52,4 +52,12 @@ public class CompetenceService {
 
         return competenceMapper.toDto(competenceRepository.save(existing));
     }
+
+
+    public List<CompetenceDTO> getCwS() {
+        return competenceRepository.findAll()
+                .stream()
+                .map(competenceMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }

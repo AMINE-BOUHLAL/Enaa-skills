@@ -23,8 +23,7 @@ public class SousCompetence {
 
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "competence_id", nullable = false)
 
     @JsonIgnoreProperties("sousCompetences")

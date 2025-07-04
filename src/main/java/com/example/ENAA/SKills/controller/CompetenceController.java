@@ -21,8 +21,8 @@ public class CompetenceController {
 
 
     @PostMapping
-    public CompetenceDTO add(@RequestBody CompetenceDTO dto) {
-        return competenceService.createCompetence(dto);
+    public CompetenceDTO add(@RequestBody CompetenceDTO competenceDTO) {
+        return competenceService.createCompetence(competenceDTO);
     }
 
     @DeleteMapping("/{id}")
@@ -43,5 +43,12 @@ public class CompetenceController {
     @PutMapping("/{id}")
     public CompetenceDTO update(@PathVariable Long id, @RequestBody CompetenceDTO dto) {
         return competenceService.updateCompetence(id, dto);
+    }
+
+
+
+    @GetMapping("/getCwS")
+    public List<CompetenceDTO> getAllWithSousCompetences() {
+        return competenceService.getCwS();
     }
 }
